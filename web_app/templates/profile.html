@@ -142,17 +142,23 @@
             <span class="info-label">Name:</span>
             <span>{{ profile.name }}</span>
         </div>
-        <div class="info-field">
-            <span class="info-label">Email:</span>
-            <span>{{ profile.email }}</span>
-        </div>
+        
         <div class="info-field">
             <span class="info-label">Friends:</span>
             <span><a href="{{ profile.friends }}">{{ profile.friends }}</a></span>
         </div>
         <div class="info-field">
             <span class="info-label">Queries:</span>
-            <span><a href="{{ profile.queries }}">{{ profile.queries }}</a></span>
+         
+            <select id ="queries-dropdown" class="queries-dropdown" onchange="window.location.href=this.value">
+                <option value="">Choose a Query</option>
+
+                <option value="{{ url_for('query1')}}">Query 1</option>
+                <option value="{{ url_for('query2')}}">Query 2</option>
+                <option value="{{ url_for('query3')}}">Query 3</option>
+                <option value="{{ url_for('query4')}}">Query 4</option>
+                <option value="{{ url_for('query5')}}">Query 5</option>
+            </select>
         </div>
     </div>
     <div class="footer">
