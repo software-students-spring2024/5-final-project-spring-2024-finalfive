@@ -1,0 +1,23 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+flask = "*"
+pymongo = "*"
+mongomock = "*"
+flask_login = "*"
+langchain = "*"
+langchain-community = "*"
+openai = "*"
+google-search-results = "*"
+requests = "*"
+bs4 = "*"
+numexpr = "*"
+langchain_openai = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.11"

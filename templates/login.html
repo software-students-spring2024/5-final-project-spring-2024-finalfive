@@ -20,7 +20,7 @@
             background: #fff;
             box-shadow: 0 2px 4px rgba(0,0,0,0.2);
         }
-        input[type=email], input[type=password] {
+        input[type=text], input[type=password] {
             width: 100%;
             padding: 10px;
             margin: 8px 0;
@@ -55,8 +55,8 @@
     <div class="login-container">
         <h2>Parlay Preacher</h2>
         <form action="/" method="POST">
-            <label for="email"><b>Email</b></label>
-            <input type="email" placeholder="Enter Email" name="email" required>
+            <label for="username"><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" name="username" required>
 
             <label for="psw"><b>Password</b></label>
             <input type="password" placeholder="Enter Password" name="password" required>
@@ -69,8 +69,9 @@
             <button onclick="location.href='/register'">Sign Up</button>
         </div>
         {% if error %}
-            <p style="color:red;">{{ error }}</p>
-        {% endif %}
+            <p style="color:red; text-align: center;">Wrong username or password!</p>
+    {% endif %}
     </div>
+    
 </body>
 </html>
