@@ -1,11 +1,20 @@
 from flask import Flask, request, render_template, redirect, url_for, flash, session
 from werkzeug.security import generate_password_hash, check_password_hash
-import flask_login
-import functools
+import flask_login, mongomock
+import functools, os
+from pymongo import MongoClient
 
-# Initialize the App
 app = Flask(__name__)
 app.secret_key = 'super secret key'
+
+if os.getenv("test"):
+    app.config["MONGO_URI"] = mongomock.MongoClient()
+else:
+    URI = "mongodb://mongodb:27017/"
+    app.config["MONGO_URI"] = MongoClient(URI)
+
+connection = app.config["MONGO_CONN"]
+
 
 # Mock user profile data - will be deleted once MongoDB database is active
 user_profile = {
