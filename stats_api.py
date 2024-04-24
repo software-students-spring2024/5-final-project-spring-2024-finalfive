@@ -5,7 +5,7 @@ from langchain_openai import OpenAI
 import requests, os
 
 
-#premier : fc
+# note: premier league = fc
 def search_statmuse(query, sport):
     URL = f'https://www.statmuse.com/{sport}/ask/{query}'
     page = requests.get(URL)
@@ -25,7 +25,6 @@ llm = OpenAI(temperature=0, api_key=os.environ.get("openai_key"))
 tools = load_tools(["serpapi", "llm-math"], llm=llm, serpapi_api_key=os.environ.get("serpapi_key")) + [statmuse_tool]
 agent = initialize_agent(tools, llm, agent="zero-shot-react-description", verbose=True)
 
-# question = "Who has scored more points in the NBA this season, Jayson Tatum or Nikola Jokic? Can you subtract the difference in points between them?"
-
-# print(question)
-# print(agent.run(question))
+question = "Who has scored more points in the NBA this season, Jayson Tatum or Nikola Jokic? Can you subtract the difference in points between them?"
+print(question)
+print(agent.run(question))

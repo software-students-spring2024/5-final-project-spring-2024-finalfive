@@ -1,12 +1,12 @@
 from flask import Flask, request, render_template, redirect, url_for, flash, session
 from hashlib import sha256
-import mongomock, requests
+#import mongomock, requests
 from pymongo import MongoClient
-from api import *
+from stats_api import *
 
 app = Flask(__name__)
 
-
+# could use testing env for mongomock, but for now just use local mongodb
 app.config["MONGO_URI"] = MongoClient("mongodb://localhost:27017")
 connection = app.config["MONGO_URI"]
 db = connection["stats"]
