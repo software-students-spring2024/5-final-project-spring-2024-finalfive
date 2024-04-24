@@ -1,0 +1,112 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    align-items: center;
+}
+.profile-header {
+    background-color: #f2f2f2;
+    width: 100%;
+    padding: 10px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.profile-text {
+    font-size: 24px;
+    margin-left: 46%;
+}
+.profile-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.profile-buttons {
+display: flex;
+justify-content: space-between;
+align-items: center;
+width: 100%;
+max-width: 200px; 
+margin: 0 auto;
+}
+
+.edit-btn, .delete-btn {
+
+padding: 5px 10px;
+background-color: #4CAF50;
+color: white;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+margin-top: 10px;
+text-decoration: none; 
+}
+
+.delete-btn {
+background-color: #f44336; 
+}
+
+.profile-info {
+    width: 90%; 
+    margin: 20px 0;
+}
+.profile-photo {
+    width: 100px;
+    height: 100px;
+    background-color: #ccc;
+    border-radius: 50%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+}
+.info-field {
+    background-color: #f0f0f0;
+    padding: 10px;
+    margin: 10px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+.info-label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.profile-container, .profile-info {
+    flex: 1;
+}
+.footer {
+    width: 100%;
+    position: static;
+    bottom: 0;
+    display: flex;
+    justify-content: space-around;
+    background-color: #f8f8f8;
+    border-top: 1px solid #ccc;
+    padding: 10px 0;
+}
+.footer a {
+    text-decoration: none;
+    color: black;
+    font-size: 14px;
+}
+@media screen and (max-width: 600px) {
+    .profile-header, .profile-info, .footer {
+        padding: 10px;
+    }
+    .profile-header {
+        font-size: 20px;
+    }
+    .edit-btn {
+        padding: 5px;
+        font-size: 14px;
+    }
+    .info-field {
+        flex-direction: column;
+    }
+}
