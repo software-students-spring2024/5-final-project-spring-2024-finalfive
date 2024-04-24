@@ -8,8 +8,14 @@ flask = "*"
 pymongo = "*"
 mongomock = "*"
 flask_login = "*"
-#functools = "*"
-werkzeug = "*"
+langchain = "*"
+langchain-community = "*"
+openai = "*"
+google-search-results = "*"
+requests = "*"
+bs4 = "*"
+numexpr = "*"
+langchain_openai = "*"
 
 [dev-packages]
 

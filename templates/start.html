@@ -5,11 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Parlay Preacher</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        button {
+            width: 50%;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+        }
+        button.sport-btn {
+            width: auto;
+            background-color: grey;
+            padding: 10px 15px;
+            font-size: 14px;
+        }
+    </style>
 </head>
 <body>
-    <h1>Hello World</h1>
+    <form action="{{ url_for('display_profile', username = username)}}" method="POST">
     <div class="btn-container">
-        <button onclick="location.href='/profile'">profile</button>
+        <button type="submit" class="profile-btn">Profile</button>
     </div>
+    </form> 
+    <h3>Select a league to query for stats!</h3>
+    <form action="{{ url_for('display_query', sport = sport, username = username)}}" method="POST">
+        <div class="middle-btn-container">
+          <button type="submit" name="sport" value="nfl" class="sport-btn">NFL</button>
+          <button type="submit" name="sport" value="nba" class="sport-btn">NBA</button>
+          <button type="submit" name="sport" value="nhl" class="sport-btn">NHL</button>
+          <button type="submit" name="sport" value="mlb" class="sport-btn">MLB</button>
+          <button type="submit" name="sport" value="pga" class="sport-btn">PGA</button>
+          <button type="submit" name="sport" value="fc" class="sport-btn">Premier League</button>
+        </div>
+      </form>      
 </body>
 </html>
