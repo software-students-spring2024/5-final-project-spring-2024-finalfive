@@ -16,6 +16,7 @@ requests = "*"
 bs4 = "*"
 numexpr = "*"
 langchain_openai = "*"
+pytest = "*"
 
 [dev-packages]
 

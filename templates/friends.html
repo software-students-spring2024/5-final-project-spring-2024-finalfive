@@ -3,17 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile</title>
+    <title>{{ username }}'s Profile</title>
     <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"> -->
 </head>
 <body>
     <div class="profile-container">
         <div class="profile-row">
             <div class="profile-col">
-                <h2>Hello, {{ name }}</h2>
+                <h2>@{{username}}</h2>
             </div>
         </div>
-        <a href="{{url_for('display_home', username = username)}}">
+        <a href="{{url_for('display_profile', username = og)}}">
             <button class="small-grey">Back</button>
         </a>
         <div class="query-row">
@@ -33,24 +33,7 @@
                 </ul>
             </div>
         </div>
-        <div class="friend-row">
-            <div class="friend-col">
-                <h3>Current friends:</h3>
-                {% if no_friends %} 
-                    <p>No friends yet!</p>
-                {% endif %}
-                <ul>
-                    {% for friend in friends %}
-                        <li><a href="{{url_for('display_friend', username = friend, original_user = username)}}" class="btn btn-secondary">
-                            {{ friend }}
-                        </a></li>
-                    {% endfor %}
-                </ul>
-            </div>
-        </div>
-    <div>
-        <a class="btn" href="{{url_for('display_addfriends', username = username)}}"> Add a friend</a>
-    </div>
+
     
 </body>
-</html>
+</html> 
