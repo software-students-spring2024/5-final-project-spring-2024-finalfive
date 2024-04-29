@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add a Friend</title>
+</head>
+
+<body>
+<div class="container">
+    <div class="row py-3">
+        <div class="col-6">
+            <a href="{{url_for('display_profile', username = username)}}" class="btn btn-secondary">
+                Back
+            </a>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-12 text-center">
+            <h2>Add a friend!</h2>
+            <form method="post">
+                <div class='mb-3'>
+                    <input style="margin-top: 20px;" type='text' name='friend' placeholder='Username' class='form-control'>
+                </div>
+
+                <div class="text-right">
+                    <button type='submit'>Add</button>
+                </div>
+                {%if error%}
+                 <span class="err">Username is currently not registered!</span>
+                {%endif%}
+
+                {%if exist%}
+                 <span class="err">Already added as a friend!</span>
+                {%endif%}
+
+                {%if success%}
+                 <span class="success">New friend added!</span>
+                {%endif%}
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+
+</html>
