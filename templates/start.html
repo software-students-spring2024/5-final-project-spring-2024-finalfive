@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parlay Preacher</title>
+    <title>Home</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <style>
         button {
@@ -18,6 +18,12 @@
         }
         button.sport-btn {
             width: auto;
+            background-color: darkblue;
+            padding: 10px 15px;
+            font-size: 14px;
+        }
+        button.small-grey {
+            width: auto;
             background-color: grey;
             padding: 10px 15px;
             font-size: 14px;
@@ -30,8 +36,9 @@
         <button type="submit" class="profile-btn">Profile</button>
     </div>
     </form> 
+    <h2>@{{ username }}</h2>
     <h3>Select a league to query for stats!</h3>
-    <form action="{{ url_for('display_query', sport = sport, username = username)}}" method="POST">
+    <form action="{{ url_for('display_query', username = username, sport = sport)}}">
         <div class="middle-btn-container">
           <button type="submit" name="sport" value="nfl" class="sport-btn">NFL</button>
           <button type="submit" name="sport" value="nba" class="sport-btn">NBA</button>
@@ -40,6 +47,10 @@
           <button type="submit" name="sport" value="pga" class="sport-btn">PGA</button>
           <button type="submit" name="sport" value="fc" class="sport-btn">Premier League</button>
         </div>
-      </form>      
+      </form>
+    
+      <a href="{{url_for('display_login')}}">
+        <button class="small-grey">Logout</button>
+    </a>
 </body>
 </html>
