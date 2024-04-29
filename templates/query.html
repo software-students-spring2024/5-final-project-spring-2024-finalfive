@@ -2,14 +2,57 @@
 <html>
 <head>
     <title>Query Page</title>
+    <style>
+        button.small-grey {
+            width: auto;
+            background-color: grey;
+            padding: 10px 15px;
+            font-size: 14px;
+        }
+    </style>
 </head>
 <body>
     <h1>Query Page</h1>
-    <p>Sport: {{ sport }}</p>
-    <!-- <form action="{{ url_for('query', sport=sport) }}" method="POST">
-        <label for="query">Enter your query:</label>
-        <input type="text" id="query" name="query">
-        <button type="submit">Submit</button>
-    </form> -->
+    <p>User: {{ username }}</p>
+    <p>Sport: {{ sport }}
+    </p>
+    {% if sport == "nfl" %}
+        <p>Enter your nfl query below:</p>
+    {% elif sport == "nba" %}
+        <p>Enter your nba query below:</p>
+    {% elif sport == "mlb" %}
+        <p>Enter your mlb query below:</p>
+    {% elif sport == "nhl" %}
+        <p>Enter your nhl query below:</p>
+    {% elif sport == "pga" %}
+        <p>Enter your pga query below:</p>
+    {% elif sport == "fc" %}
+        <p>Enter your premier league query below:</p>
+    {% else %}
+        <p>Invalid sport.</p>
+    {% endif %}
+
+    <form action="{{url_for('query', username = username)}}" method="POST">
+        <input type="hidden" name="sport" value="{{ sport }}">
+        <input type="text" id="query" name="query" required>
+        <button type="submit">submit</button>
+    </form>
+    
+    {% if result %}
+        <p>{{ result }}</p>
+        {% if result != "Sorry, I dont't understand your question." %}
+            <form action="{{url_for('save_to_profile', username=username)}}" method="POST">
+                <input type="hidden" name="query" value="query">
+                <button type="submit" class="small-grey">Save to Profile</button>
+            </form>
+        {% endif %}
+    {% endif %}
+
+    
+
+    <a href="{{url_for('display_home', username = username)}}">
+        <button class="small-grey">Back</button>
+    </a>
+    
 </body>
 </html>
