@@ -5,37 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <style>
-        button {
-            width: 50%;
-            padding: 14px 20px;
-            margin: 8px 0;
-            border: none;
-            cursor: pointer;
-            background-color: #4CAF50;
-            color: white;
-            border-radius: 5px;
-        }
-        button.sport-btn {
-            width: auto;
-            background-color: darkblue;
-            padding: 10px 15px;
-            font-size: 14px;
-        }
-        button.small-grey {
-            width: auto;
-            background-color: grey;
-            padding: 10px 15px;
-            font-size: 14px;
-        }
-    </style>
 </head>
 <body>
-    <form action="{{ url_for('display_profile', username = username)}}" method="POST">
-    <div class="btn-container">
-        <button type="submit" class="profile-btn">Profile</button>
-    </div>
-    </form> 
+    <div class="top-nav">
+        <div class="left-corner">
+            <span> Parlay Preacher </span>
+        
+        </div>
+
+        <div class="right-corner">
+            <form action="{{ url_for('display_profile', username = username)}}" method="POST">
+                <button type="submit" class="profile-btn">Profile</button>
+            </form>
+            <span> @{{username}}</span>
+        </div>
+        
+        </div>
     <h2>@{{ username }}</h2>
     <h3>Select a league to query for stats!</h3>
     <form action="{{ url_for('display_query', username = username, sport = sport)}}">

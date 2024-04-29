@@ -18,8 +18,39 @@ body {
     
 }
 
+.top-nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    position: fixed;
+    width: 100%;
+    box-sizing: border-box;
+    background-color: black;
+    color: red;
+    top:0;
 
 
+}
+
+.left-corner{
+    font-size: 1.5em;
+
+}
+
+.right-corner{
+    display:flex;
+    align-items:center;
+}
+
+.profile-btn {
+    background-color: Red;
+    margin-right: 10pxß;
+    padding: 10px 15px;
+    border: none;
+    cursor:pointer;
+    color:white;
+}
 
 .header-container{
     width: 90%;
