@@ -2,7 +2,7 @@ from flask import Flask, request, render_template, redirect, url_for, flash, ses
 from hashlib import sha256
 #import mongomock, requests
 from pymongo import MongoClient
-from stats_api import *
+from stats_api import search_statmuse
 
 app = Flask(__name__)
 
