@@ -3,11 +3,75 @@ body {
     margin: 0;
     padding: 0;
     display: flex;
+    justify-content: center;
+    align-items: center;
+
     flex-direction: column;
     min-height: 100vh;
-    align-items: center;
-    background-color: #f0f0f0; /* Added background color for overall consistency */
+
+    /*background-color: blue;*/
+    
+    background-image: url(background.jpeg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
 }
+
+
+
+
+.header-container{
+    width: 90%;
+    max-width: 500px;
+    background-color: black;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(255,255,255,0.1);
+    border: 10px solid red;
+
+}
+
+.title{
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: red
+}
+
+input[type="text"], input[type="password"]{
+    width: 90%;
+    padding: 10px;
+    margin: 8px 0;
+    border: 5px solid red;
+    background:white;
+    color:#fff;
+    border-radius: 5px;
+}
+
+button{
+    background-color:#4CAF50;
+    color: white;
+    margin: 8px 0;
+    border: 1px solid red;
+    background:#333;
+    color:#fff;
+    border-radius: 5px;
+
+}
+
+button:hover{
+
+    opacity:0.8;
+
+}
+    
+
+
+
+
+
+
 
 .profile-header {
     background-color: #f2f2f2;
@@ -22,42 +86,42 @@ body {
     font-size: 24px;
     margin-left: 46%;
 }
-
 .profile-container {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-
 .profile-buttons {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    max-width: 200px;
-    margin: 0 auto;
+display: flex;
+justify-content: space-between;
+align-items: center;
+width: 100%;
+max-width: 200px; 
+margin: 0 auto;
 }
 
+
+
 .edit-btn, .delete-btn {
-    padding: 5px 10px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-top: 10px;
-    text-decoration: none;
+
+padding: 5px 10px;
+background-color: #4CAF50;
+color: white;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+margin-top: 10px;
+text-decoration: none; 
 }
 
 .delete-btn {
-    background-color: #f44336;
+background-color: #f44336; 
 }
 
 .profile-info {
-    width: 90%;
+    width: 90%; 
     margin: 20px 0;
 }
-
 .profile-photo {
     width: 100px;
     height: 100px;
@@ -69,7 +133,6 @@ body {
     align-items: center;
     font-size: 16px;
 }
-
 .info-field {
     background-color: #f0f0f0;
     padding: 10px;
@@ -78,12 +141,13 @@ body {
     flex-direction: column;
     align-items: start;
 }
-
 .info-label {
     font-weight: bold;
     margin-bottom: 5px;
 }
-
+.profile-container, .profile-info {
+    flex: 1;
+}
 .footer {
     width: 100%;
     position: static;
@@ -94,13 +158,11 @@ body {
     border-top: 1px solid #ccc;
     padding: 10px 0;
 }
-
 .footer a {
     text-decoration: none;
     color: black;
     font-size: 14px;
 }
-
 @media screen and (max-width: 600px) {
     .profile-header, .profile-info, .footer {
         padding: 10px;
