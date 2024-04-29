@@ -3,11 +3,12 @@ from hashlib import sha256
 #import mongomock, requests
 from pymongo import MongoClient
 from stats_api import *
+import os
 
 app = Flask(__name__)
 
 # could use testing env for mongomock, but for now just use local mongodb
-app.config["MONGO_URI"] = MongoClient("mongodb://localhost:27017")
+app.config["MONGO_URI"] = MongoClient(os.environ.get("MONGO_URI"))
 connection = app.config["MONGO_URI"]
 db = connection["stats"]
 users = db.users
@@ -17,15 +18,6 @@ try:
     print(" *", "Connected to MongoDB!")  
 except Exception as e:
     print(" * MongoDB connection error:", e)
-
-# @login_manager.user_loader
-# def user_loader(email):
-#     data = users.find_one({"email": email})
-#     print(data)
-#     #if data:
-#         #return data
-#     return render_template("login.html", error="User not found")
-
 
 @app.route("/")
 def display_login():

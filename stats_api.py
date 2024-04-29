@@ -29,21 +29,4 @@ statmuse_tool = Tool(
 # print(question)
 # print(agent.run(question))
 
-#print(search_statmuse("Who is the highest scoring player in the NBA?", "nba"))
 
-"""
-
-from pymongo.mongo_client import MongoClient
-
-uri = "mongodb+srv://admin:J7Iw9UpPhQ4AoIf4@cluster0.httdh3b.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
-
-# Create a new client and connect to the server
-client = MongoClient(uri)
-
-# Send a ping to confirm a successful connection
-try:
-    client.admin.command('ping')
-    print("Pinged your deployment. You successfully connected to MongoDB!")
-except Exception as e:
-    print(e)
-"""
