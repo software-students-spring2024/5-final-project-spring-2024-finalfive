@@ -4,23 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile</title>
-    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"> -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    
 </head>
 <body>
     <div class="profile-container">
-        <div class="profile-row">
-            <div class="profile-col">
-                <h2>Hello, {{ name }}</h2>
-            </div>
-        </div>
-        <a href="{{url_for('display_home', username = username)}}">
-            <button class="small-grey">Back</button>
-        </a>
-        <div class="query-row">
-            <div class="query-col">
-                <h3>User queries:</h3>
-                {% if no_queries %} 
-                    <p>No queries yet!</p>
+        <header>
+            <h1>Welcome, {{ name }}</h1>
+        </header>
+        <nav>
+            <a href="{{url_for('display_home', username = username)}}">
+                <button class="btn">Back</button> </a>
+        </nav>
+        
+       
+        <section class="Queries">
+            <h2>Previous User queries:</h2>
+            {% if no_queries %}
+                <p>No queries yet!</p>
                 {% endif %}
                 <ul>
                     {% for query in queries %}
@@ -31,26 +32,25 @@
                         </li>
                     {% endfor %}
                 </ul>
-            </div>
-        </div>
-        <div class="friend-row">
-            <div class="friend-col">
+            
+        </section>
+            <section class="Friends">
                 <h3>Current friends:</h3>
                 {% if no_friends %} 
                     <p>No friends yet!</p>
                 {% endif %}
                 <ul>
                     {% for friend in friends %}
-                        <li><a href="{{url_for('display_friend', username = friend, original_user = username)}}" class="btn btn-secondary">
+                        <li><a href="{{url_for('display_friend', username = friend, original_user = username)}}" class="btn"> View 
                             {{ friend }}
                         </a></li>
                     {% endfor %}
                 </ul>
-            </div>
-        </div>
-    <div>
-        <a class="btn" href="{{url_for('display_addfriends', username = username)}}"> Add a friend</a>
-    </div>
+            
+                
     
+                <a class="btn" href="{{url_for('display_addfriends', username = username)}}"> Add a friend</a>
+            </section>
+    </div>
 </body>
 </html>
