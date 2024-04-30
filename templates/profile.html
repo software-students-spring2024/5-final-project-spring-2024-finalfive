@@ -1,20 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profile</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block content %}
     <div class="profile-container">
         <header>
-            <h1>Welcome, {{ name }}</h1>
+            <h2>Welcome, {{ name }}</h2>
         </header>
         <nav>
             <a href="{{url_for('display_home', username = username)}}">
-                <button class="btn">Back</button> </a>
+                <button class="sport-btn">Back</button> </a>
         </nav>
         
        
@@ -52,5 +45,4 @@
                 <a class="btn" href="{{url_for('display_addfriends', username = username)}}"> Add a friend</a>
             </section>
     </div>
-</body>
-</html>
+{% endblock %}

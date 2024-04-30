@@ -2,7 +2,7 @@
 
 {% block content %}
 <div class="query-container">
-    <h1>Query Page</h1>
+    <h1>Ask your Question</h1>
     <p>User: {{ username }}</p>
     <p>Sport: {{ sport }}
     </p>
@@ -25,7 +25,7 @@
     <form action="{{url_for('query', username = username)}}" method="POST">
         <input type="hidden" name="sport" value="{{ sport }}">
         <input type="text" name="query" required>
-        <button type="submit">submit</button>
+        <button type="submit" class="small-grey">submit</button>
     </form>
     
 
