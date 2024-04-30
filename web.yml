@@ -1,6 +1,6 @@
 name: Web App (CI/CD)
 
-on:
+on: push
   push: 
     branches: [ "main" ]
   pull_request:
@@ -24,9 +24,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install pipenv
         pipenv install 
-        pipenv install pytest
         
     - name: Testing
       run: |
-        pipemv install
         pipenv run pytest
