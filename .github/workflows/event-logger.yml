@@ -31,6 +31,7 @@ jobs:
           pip install --user pipenv
           pip install pytest
           pipenv --python $(which python)
+          pipenv install flask
           pipenv install pytz
           pipenv install python-dateutil
           pipenv install build
