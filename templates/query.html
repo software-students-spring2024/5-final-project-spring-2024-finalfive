@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<div class="query-container">
     <h1>Query Page</h1>
     <p>User: {{ username }}</p>
     <p>Sport: {{ sport }}
@@ -46,4 +47,5 @@
     <a href="{{url_for('display_home', username = username)}}">
         <button class="small-grey">Back</button>
     </a>
+</div>
 {% endblock %}

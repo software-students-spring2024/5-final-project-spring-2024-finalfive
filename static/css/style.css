@@ -270,6 +270,16 @@ background-color: #f44336;
     color: black;
     font-size: 14px;
 }
+.query-container{  
+    margin: auto;
+    padding:20px;
+    background: white;
+    border-radius: 8px;  
+    display: flex;
+    flex-direction: column;
+    align-items: center;   
+}
+
 @media screen and (max-width: 600px) {
     .profile-header, .profile-info, .footer {
         padding: 10px;
