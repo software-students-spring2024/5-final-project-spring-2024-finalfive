@@ -1,4 +1,4 @@
-### badges here
+![Python build & test](https://github.com/software-students-spring2024/5-final-project-spring-2024-finalfive/actions/workflows/web.yml/badge.svg) 
 
 ## Description
 

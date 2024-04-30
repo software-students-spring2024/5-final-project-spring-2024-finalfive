@@ -2,12 +2,13 @@ from flask import Flask, request, render_template, redirect, url_for, flash, ses
 from hashlib import sha256
 #import mongomock, requests
 from pymongo import MongoClient
-from stats_api import search_statmuse
+from stats_api import *
+import os
 
 app = Flask(__name__)
 
 # could use testing env for mongomock, but for now just use local mongodb
-app.config["MONGO_URI"] = MongoClient("mongodb://localhost:27017")
+app.config["MONGO_URI"] = MongoClient(os.environ.get("MONGO_URI"))
 connection = app.config["MONGO_URI"]
 db = connection["stats"]
 users = db.users
@@ -17,15 +18,6 @@ try:
     print(" *", "Connected to MongoDB!")  
 except Exception as e:
     print(" * MongoDB connection error:", e)
-
-# @login_manager.user_loader
-# def user_loader(email):
-#     data = users.find_one({"email": email})
-#     print(data)
-#     #if data:
-#         #return data
-#     return render_template("login.html", error="User not found")
-
 
 @app.route("/")
 def display_login():
@@ -77,7 +69,7 @@ def display_profile(username):
         return render_template('profile.html', username = username, no_friends = True, queries = user_queries, name = users.find_one({"username": username})["name"])
     if not user_queries:
         return render_template('profile.html', username = username, friends = user_friends, no_queries = True, name = users.find_one({"username": username})["name"])
-    return render_template("profile.html", friends=user_friends, username = username, name = users.find_one({"username": username})["name"])
+    return render_template("profile.html", friends=user_friends, username = username, queries = user_queries, name = users.find_one({"username": username})["name"])
 
 @app.route("/addfriends/<username>")
 def display_addfriends(username):
@@ -104,14 +96,23 @@ def query(username):
     query_text = request.form["query"]
     sport = request.form["sport"]
     result = search_statmuse(query_text, sport)
-    return render_template("query.html", username=username, sport=sport, result=result)
+    return render_template("query.html", username=username, sport=sport, result=result, query=query_text)
 
-@app.route('/save_to_profile/<username>/', methods=['POST'])
+@app.route('/save_to_profile/<username>', methods=['POST'])
 def save_to_profile(username):
-    query_to_save = request.form['query']
-    users.update_one({'username': username}, {'$push': {'queries': query_to_save}})
-    return redirect(url_for('query', username=username))
+    sport = request.form.get('sport')
+    query = request.form.get('query')
+    result = request.form.get('result')
+    user_query = [sport, query, result]
+    #print(user_query)
+    users.update_one({"username": username}, {"$push": {"queries": user_query}})
+    return redirect(url_for('display_home', username=username))
 
+@app.route("/<original_user>/friends/<username>")
+def display_friend(username, original_user):
+    print(original_user)
+    friend_queries = users.find_one({"username": username})["queries"]
+    return render_template("friends.html", username = username, queries = friend_queries, og = original_user)
 
-if __name__ == "__main__":
+if __name__ == "__main__":   
     app.run(debug=True)

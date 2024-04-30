@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ username }}'s Profile</title>
+    <!-- <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"> -->
+</head>
+<body>
+    <div class="profile-container">
+        <div class="profile-row">
+            <div class="profile-col">
+                <h2>@{{username}}</h2>
+            </div>
+        </div>
+        <a href="{{url_for('display_profile', username = og)}}">
+            <button class="small-grey">Back</button>
+        </a>
+        <div class="query-row">
+            <div class="query-col">
+                <h3>User queries:</h3>
+                {% if no_queries %} 
+                    <p>No queries yet!</p>
+                {% endif %}
+                <ul>
+                    {% for query in queries %}
+                        <li>
+                            <strong>Sport:</strong> {{ query[0] }}<br>
+                            <strong>Query:</strong> {{ query[1] }}<br>
+                            <strong>Result:</strong> {{ query[2] }}
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+
+    
+</body>
+</html> 

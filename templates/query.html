@@ -1,17 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Query Page</title>
-    <style>
-        button.small-grey {
-            width: auto;
-            background-color: grey;
-            padding: 10px 15px;
-            font-size: 14px;
-        }
-    </style>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block content %}
     <h1>Query Page</h1>
     <p>User: {{ username }}</p>
     <p>Sport: {{ sport }}
@@ -34,15 +23,19 @@
 
     <form action="{{url_for('query', username = username)}}" method="POST">
         <input type="hidden" name="sport" value="{{ sport }}">
-        <input type="text" id="query" name="query" required>
+        <input type="text" name="query" required>
         <button type="submit">submit</button>
     </form>
     
+
+
     {% if result %}
         <p>{{ result }}</p>
         {% if result != "Sorry, I dont't understand your question." %}
             <form action="{{url_for('save_to_profile', username=username)}}" method="POST">
-                <input type="hidden" name="query" value="query">
+                <input type="hidden" name="sport" value="{{ sport }}">
+                <input type="hidden" name="query" value="{{ query }}">
+                <input type="hidden" name="result" value="{{ result }}">
                 <button type="submit" class="small-grey">Save to Profile</button>
             </form>
         {% endif %}
@@ -53,6 +46,4 @@
     <a href="{{url_for('display_home', username = username)}}">
         <button class="small-grey">Back</button>
     </a>
-    
-</body>
-</html>
+{% endblock %}
