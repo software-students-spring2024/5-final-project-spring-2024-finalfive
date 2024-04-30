@@ -18,6 +18,42 @@ body {
     
 }
 
+.profile-container{
+    max-width: 800px;
+    margin: auto;
+    padding:20px;
+    background: white;
+    border-radius: 8px;
+
+}
+
+header h1{
+    color: blue;
+}
+
+nav .btn, section.btn{
+    padding: 10px 20px;
+    border: none;
+    border-radius:5px;
+    background-color: blue;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+    margin:10px 0;
+}
+
+ul{
+    list-style:none;
+    padding:0;
+    background-color: purple;
+}
+
+li{
+    margin-bottom: 10px;
+    padding:10px;
+    border-radius: 5px;
+    background-color: purple;
+}
 .top-nav{
     display: flex;
     justify-content: space-between;
