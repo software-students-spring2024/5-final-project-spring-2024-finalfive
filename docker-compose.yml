@@ -1,0 +1,14 @@
+version: "3.9"
+
+services:
+  app:
+    image: jladrover/webapp
+    environment:
+      MONGO_URI: ${MONGO_URI}
+    build:
+      context: .
+    ports:
+      - "5005:5005"
+    
+
+
