@@ -14,10 +14,15 @@
         </div>
 
         <div class="right-corner">
+
+            <span> Hi, @ {{username}} </span>
             <form action="{{ url_for('display_profile', username = username)}}" method="POST">
                 <button type="submit" class="profile-btn">Profile</button>
             </form>
-            <span> @{{username}}</span>
+
+            <a href="{{url_for('display_login')}}" class="logout-btn">Logout</a>
+
+            
         </div>
         
         </div>
@@ -33,9 +38,6 @@
           <button type="submit" name="sport" value="fc" class="sport-btn">Premier League</button>
         </div>
       </form>
-    
-      <a href="{{url_for('display_login')}}">
-        <button class="small-grey">Logout</button>
-    </a>
+   
 </body>
 </html>

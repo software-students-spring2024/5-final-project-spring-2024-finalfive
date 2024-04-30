@@ -34,7 +34,8 @@ body {
 }
 
 .left-corner{
-    font-size: 1.5em;
+
+    font-size:1.5em;
 
 }
 
@@ -45,12 +46,24 @@ body {
 
 .profile-btn {
     background-color: Red;
-    margin-right: 10pxß;
+    margin-right: 30px;
     padding: 10px 15px;
     border: none;
     cursor:pointer;
     color:white;
 }
+
+.logout-btn {
+    background-color: Red;
+    margin-right: 20px;
+    padding: 10px 15px;
+    border: none;
+    cursor:pointer;
+    color:white;
+}
+
+
+
 
 .header-container{
     width: 90%;
