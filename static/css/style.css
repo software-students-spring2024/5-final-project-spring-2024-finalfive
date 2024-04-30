@@ -54,6 +54,33 @@ li{
     border-radius: 5px;
     background-color: purple;
 }
+
+.row{
+    text-align: center;
+    margin-top:10px;
+
+}
+
+.row-container{
+    margin: auto;
+    max-width:300px;
+}
+
+.form-control{
+    width:100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    
+}
+
+.err, .sucess{
+    color: red
+    
+}
+
+.success{
+    color: green;
+}
 .top-nav{
     display: flex;
     justify-content: space-between;
