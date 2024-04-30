@@ -57,4 +57,4 @@ jobs:
           cat commits.json # debugging
           pipenv run gitcommitlogger -r $(echo $REPOSITORY_URL) -t $(echo $EVENT_TYPE) -i commits.json -o commit_stats.csv -u $(echo $COMMIT_LOG_API) -v
       - name: Run unit tests
-        run: python -m pytest --import-mode=append tests/
+        run: python -m pytest 
