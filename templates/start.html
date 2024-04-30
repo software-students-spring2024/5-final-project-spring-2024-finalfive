@@ -9,7 +9,7 @@
 <body>
     <div class="top-nav">
         <div class="left-corner">
-            <span> Parlay Preacher </span>
+            <span> Stats Preacher </span>
         
         </div>
 
@@ -20,12 +20,11 @@
                 <button type="submit" class="profile-btn">Profile</button>
             </form>
 
-            <a href="{{url_for('display_login')}}" class="logout-btn">Logout</a>
+            <a href="{{url_for('display_login')}}" class="logout-btn">Logout</a>         
+        </div>   
+    </div>
 
-            
-        </div>
-        
-        </div>
+<div class="query-container">
     <h2>@{{ username }}</h2>
     <h3>Select a league to query for stats!</h3>
     <form action="{{ url_for('display_query', username = username, sport = sport)}}">
@@ -38,6 +37,7 @@
           <button type="submit" name="sport" value="fc" class="sport-btn">Premier League</button>
         </div>
       </form>
+</div>
    
 </body>
 </html>
