@@ -5,82 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <style>
-        body{
-            margin: 0;
-            min-height: 100vh;
-            background-color: rgb(255, 255, 255);
-        }
-        .header{
-            display: flex;
-            justify-content: space-between;
-            width: 100%;
-            height: 10%;
-            background-color: rgb(220, 220, 220);
-        }
-        .title{
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        .page_layout{
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        button {
-            width: 100%;
-            padding: 14px 20px;
-            margin: 8px 0;
-            border: none;
-            cursor: pointer;
-            background-color: blue;
-            color: white;
-            border-radius: 5px;
-        }
-        button.sport-btn {
-            width: auto;
-            background-color: blue;
-            padding: 10px 15px;
-            font-size: 14px;
-        }
-        button.small-grey {
-            width: auto;
-            background-color: rgb(135, 135, 135);
-            padding: 10px 15px;
-            font-size: 14px;
-            position: absolute;
-            bottom: 0;
-            right: 0;   
-        }
-    </style>
 </head>
 <body>
-    <form action="{{ url_for('display_profile', username = username)}}" method="POST">
-    <div class="header">
-        <div class="title">
-            <h2>Stats Preacher</h2>
-        </div>
-        <div class="btn-container">
-            <button type="submit" class="profile-btn">Profile</button>
-        </div>
-    </div>
-    <div class="page_layout">
-        </form> 
-            <h1>Hello, {{ username }}!</h1>
-            <h3>Select a league to query for stats!</h3>
-            <form action="{{ url_for('display_query', username = username, sport = sport)}}">
-            <div class="middle-btn-container">
-                <button type="submit" name="sport" value="nfl" class="sport-btn">NFL</button>
-                <button type="submit" name="sport" value="nba" class="sport-btn">NBA</button>
-                <button type="submit" name="sport" value="nhl" class="sport-btn">NHL</button>
-                <button type="submit" name="sport" value="mlb" class="sport-btn">MLB</button>
-                <button type="submit" name="sport" value="pga" class="sport-btn">PGA</button>
-                <button type="submit" name="sport" value="fc" class="sport-btn">Premier League</button>
-            </div>
+    <div class="top-nav">
+        <div class="left-corner">
+            <span> Stats Preacher </span>
         
-        </form>
-    </div>
-    <a href="{{url_for('display_login')}}">
-        <button class="small-grey">Logout</button>
-    </a>
+        </div>
+
+        <div class="right-corner">
+
+            <span> Hi, @ {{username}} </span>
+            <form action="{{ url_for('display_profile', username = username)}}" method="POST">
+                <button type="submit" class="profile-btn">Profile</button>
+            </form>
+
+            <a href="{{url_for('display_login')}}" class="logout-btn">Logout</a>
+
+            
+        </div>
+        
+        </div>
+    <h2>@{{ username }}</h2>
+    <h3>Select a league to query for stats!</h3>
+    <form action="{{ url_for('display_query', username = username, sport = sport)}}">
+        <div class="middle-btn-container">
+          <button type="submit" name="sport" value="nfl" class="sport-btn">NFL</button>
+          <button type="submit" name="sport" value="nba" class="sport-btn">NBA</button>
+          <button type="submit" name="sport" value="nhl" class="sport-btn">NHL</button>
+          <button type="submit" name="sport" value="mlb" class="sport-btn">MLB</button>
+          <button type="submit" name="sport" value="pga" class="sport-btn">PGA</button>
+          <button type="submit" name="sport" value="fc" class="sport-btn">Premier League</button>
+        </div>
+      </form>
+   
 </body>
 </html>
