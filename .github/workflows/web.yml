@@ -1,4 +1,4 @@
-name: Web App (CI/CD)
+name: web app (CI/CD)
 on: [push]
 jobs:
   build:
@@ -48,3 +48,39 @@ jobs:
         docker-compose build 
         docker-compose up -d 
         docker-compose push
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: repo checkout
+        uses: actions/checkout@v2
+      
+      - name: SSH Pass
+        run: sudo apt-get install -y sshpass
+  
+      - name: Droplet get data
+        env:
+          DROPLET_IP: 64.23.130.239
+          DROPLET_KEY: ${{secrets.DROPLET_KEY }}
+          MONGO_URI: ${{ secrets.MONGO_URI }}
+        run: |
+          sshpass -p "${DROPLET_KEY}" rsync -avz -e "ssh -o StrictHostKeyChecking=no" ./ "$root@${DROPLET_IP}:/root"
+  
+      - name: Droplet get env
+        env:
+          DROPLET_IP: 64.23.130.239
+          DROPLET_KEY: ${{secrets.DROPLET_KEY }}
+          MONGO_URI: ${{ secrets.MONGO_URI }}
+        run: |
+          sshpass -p "${DROPLET_KEY}" ssh -o StrictHostKeyChecking=no "$root@${DROPLET_IP}" "echo 'export MONGO_URI=${MONGO_URI}' >> ~/.bashrc"
+  
+      - name: Docker build on droplet
+        env:
+          DROPLET_IP: 64.23.130.239
+          DROPLET_KEY: ${{secrets.DROPLET_KEY }}
+          MONGO_URI: ${{ secrets.MONGO_URI }}
+        run: |
+          sshpass -p "${DROPLET_KEY}" ssh -o StrictHostKeyChecking=no "$root@${DROPLET_IP}" "
+            docker-compose down &&
+            docker-compose build &&
+            docker-compose up -d
+          "
