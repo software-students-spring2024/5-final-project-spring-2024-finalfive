@@ -1,6 +1,5 @@
 name: Web App (CI/CD)
-
-on:[push]
+on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
