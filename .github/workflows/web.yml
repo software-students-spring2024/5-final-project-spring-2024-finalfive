@@ -71,7 +71,7 @@ jobs:
           DROPLET_KEY: testpassword
           MONGO_URI: ${{ secrets.MONGO_URI }}
         run: |
-          sshpass -p "${DROPLET_KEY}" ssh -o StrictHostKeyChecking=no "$root@${DROPLET_IP}" "echo 'export MONGO_URI=${MONGO_URI}' >> ~/.bashrc"
+          sshpass -p "${DROPLET_KEY}" ssh -o StrictHostKeyChecking=no "root@${DROPLET_IP}" "echo 'export MONGO_URI=${MONGO_URI}' >> ~/.bashrc"
   
       - name: Docker build on droplet
         env:
@@ -79,7 +79,7 @@ jobs:
           DROPLET_KEY: testpassword
           MONGO_URI: ${{ secrets.MONGO_URI }}
         run: |
-          sshpass -p "${DROPLET_KEY}" ssh -o StrictHostKeyChecking=no "$root@${DROPLET_IP}" "
+          sshpass -p "${DROPLET_KEY}" ssh -o StrictHostKeyChecking=no "root@${DROPLET_IP}" "
             docker-compose down &&
             docker-compose build &&
             docker-compose up -d
