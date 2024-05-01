@@ -59,7 +59,7 @@ jobs:
   
       - name: Droplet get data
         env:
-          DROPLET_IP: 143.198.134.189
+          DROPLET_IP: 167.71.104.143
           DROPLET_KEY: test1Password
           MONGO_URI: ${{ secrets.MONGO_URI }}
         run: |
@@ -67,7 +67,7 @@ jobs:
   
       - name: Droplet get env
         env:
-          DROPLET_IP: 143.198.134.189
+          DROPLET_IP: 167.71.104.143
           DROPLET_KEY: test1Password
           MONGO_URI: ${{ secrets.MONGO_URI }}
         run: |
@@ -75,12 +75,12 @@ jobs:
   
       - name: Docker build on droplet
         env:
-          DROPLET_IP: 143.198.134.189
+          DROPLET_IP: 167.71.104.143
           DROPLET_KEY: test1Password
           MONGO_URI: ${{ secrets.MONGO_URI }}
         run: |
           sshpass -p "${DROPLET_KEY}" ssh -o StrictHostKeyChecking=no "root@${DROPLET_IP}" "
-            docker-compose down &&
-            docker-compose build &&
-            docker-compose up -d
+            docker compose down &&
+            docker compose build &&
+            docker compose up -d
           "
