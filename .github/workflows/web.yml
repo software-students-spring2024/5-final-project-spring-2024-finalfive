@@ -1,15 +1,14 @@
 name: Web App (CI/CD)
 
-on:
-  push: 
-    branches: [ "main" ]
-  pull_request:
-    types: [opened, closed]
-    branches: [main, master]
-
+on:[push]
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      OPENAI_KEY: ${{ secrets.OPENAI_KEY }}
+      SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
+      MONGO_URI: ${{ secrets.MONGO_URI }}
+
 
     steps:
     - uses: actions/checkout@v3
