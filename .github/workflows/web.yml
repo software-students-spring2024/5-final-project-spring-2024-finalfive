@@ -59,24 +59,24 @@ jobs:
   
       - name: Droplet get data
         env:
-          DROPLET_IP: 64.23.130.239
-          DROPLET_KEY: testpassword
+          DROPLET_IP: 146.190.175.224
+          DROPLET_KEY: test1Password
           MONGO_URI: ${{ secrets.MONGO_URI }}
         run: |
           sshpass -p "${DROPLET_KEY}" rsync -avz -e "ssh -o StrictHostKeyChecking=no" ./ "root@${DROPLET_IP}:/root"
   
       - name: Droplet get env
         env:
-          DROPLET_IP: 64.23.130.239
-          DROPLET_KEY: testpassword
+          DROPLET_IP: 146.190.175.224
+          DROPLET_KEY: test1Password
           MONGO_URI: ${{ secrets.MONGO_URI }}
         run: |
           sshpass -p "${DROPLET_KEY}" ssh -o StrictHostKeyChecking=no "root@${DROPLET_IP}" "echo 'export MONGO_URI=${MONGO_URI}' >> ~/.bashrc"
   
       - name: Docker build on droplet
         env:
-          DROPLET_IP: 64.23.130.239
-          DROPLET_KEY: testpassword
+          DROPLET_IP: 146.190.175.224
+          DROPLET_KEY: test1Password
           MONGO_URI: ${{ secrets.MONGO_URI }}
         run: |
           sshpass -p "${DROPLET_KEY}" ssh -o StrictHostKeyChecking=no "root@${DROPLET_IP}" "
