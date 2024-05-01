@@ -71,7 +71,7 @@ jobs:
           DROPLET_KEY: testpassword
           MONGO_URI: ${{ secrets.MONGO_URI }}
         run: |
-          sshpass -p "${DROPLET_KEY}" ssh -o StrictHostKeyChecking=no "root@${DROPLET_IP}" "echo 'export MONGO_URI=${MONGO_URI}' >> ~/.bashrc"
+          sshpass -p "${DROPLET_KEY}" ssh -o StrictHostKeyChecking=no "root@${DROPLET_IP}" "echo 'export MONGO_URI=${MONGO_URI}' >> ~/.enc"
   
       - name: Docker build on droplet
         env:
