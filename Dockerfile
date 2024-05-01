@@ -8,6 +8,6 @@ RUN pip install pipenv
 
 RUN pipenv install
 
-EXPOSE 5005
+EXPOSE 5000
 
 CMD [ "pipenv", "run", "python", "app.py"]

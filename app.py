@@ -115,4 +115,4 @@ def display_friend(username, original_user):
     return render_template("friends.html", username = username, queries = friend_queries, og = original_user)
 
 if __name__ == "__main__":   
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=5000)

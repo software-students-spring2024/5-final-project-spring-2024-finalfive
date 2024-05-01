@@ -2,14 +2,12 @@ version: "3.10"
 
 services:
   app:
-    image: jladrover/league_query:webapp
+    image: jladrover/league_query
     environment:
       MONGO_URI: ${MONGO_URI}
-    build:
-      context: .
-      dockerfile: Dockerfile
+    build: ./
     ports:
-      - "5005:5005"
+      - "5001:5000"
 
   
 
