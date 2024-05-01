@@ -1,8 +1,8 @@
 from bs4 import BeautifulSoup
-from langchain.agents import load_tools
-from langchain.agents import initialize_agent, Tool
-from langchain_openai import OpenAI
-import requests, os
+# from langchain.agents import load_tools
+# from langchain.agents import initialize_agent, Tool
+# from langchain_openai import OpenAI
+import requests
 
 
 # note: premier league = fc
@@ -14,11 +14,11 @@ def search_statmuse(query, sport):
     description_content = description_tag.get('content') if "Instant answers" not in description_tag.get('content') else "Sorry, I dont't understand your question."
     return(description_content)
 
-statmuse_tool = Tool(
-    name = "Statmuse",
-    func = search_statmuse,
-    description = "A sports search engine. Use this more than normal search if the question is about NBA basketball, like 'who is the highest scoring player in the NBA?'. Always specify a year or timeframe with your search. Only ask about one player or team at a time, don't ask about multiple players at once."
-)
+# statmuse_tool = Tool(
+#     name = "Statmuse",
+#     func = search_statmuse,
+#     description = "A sports search engine. Use this more than normal search if the question is about NBA basketball, like 'who is the highest scoring player in the NBA?'. Always specify a year or timeframe with your search. Only ask about one player or team at a time, don't ask about multiple players at once."
+# )
 
 
 # llm = OpenAI(temperature=0, api_key=os.environ.get("openai_key"))
