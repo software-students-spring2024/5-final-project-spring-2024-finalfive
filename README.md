@@ -1,30 +1,28 @@
-### Badges
-
-[![CI/CD Pipeline for Subsystem 1](https://github.com/<GitHub_Username>/<Repository_Name>/actions/workflows/subsystem1.yml/badge.svg)](https://github.com/<GitHub_Username>/<Repository_Name>/actions/workflows/subsystem1.yml)
-[![CI/CD Pipeline for Subsystem 2](https://github.com/<GitHub_Username>/<Repository_Name>/actions/workflows/subsystem2.yml/badge.svg)](https://github.com/<GitHub_Username>/<Repository_Name>/actions/workflows/subsystem2.yml)
-[![Code Coverage](https://img.shields.io/badge/coverage-80%25-brightgreen)]()
+![Python build & test](https://github.com/software-students-spring2024/5-final-project-spring-2024-finalfive/actions/workflows/web.yml/badge.svg) 
 
 ## Description
 
-Our application is a user-centric platform that delivers real-time sports statistics and enables social interaction among sports enthusiasts. With support for NBA, NFL, NHL, and Premier League queries, users can stay updated with the latest scores, player stats, and team standings. The platform boasts a dynamic querying subsystem powered by a sophisticated language model, ensuring users receive accurate and contextual information instantly. Additionally, users can connect by adding friends, sharing queries, and discussing sports on their personalized profile pages. Our system, backed by MongoDB, provides robust data management and a seamless user experience, demonstrating a blend of modern software engineering practices and sports analytics.
+# Statemates
 
+Statemates is an AI-powered web application designed to provide easy-to-read, sports-related information based on user queries written in natural language. 
+
+Unlike large language models such as ChatGPT, which may struggle to provide updated sports statistics due to a lack of relevant sports information, Statemates bridges this gap. It allows ChatGPT to access sports statistics from Statmuse, ensuring accurate and concise analysis of user queries.
+
+In addition to providing sports statistics, Statemates offers a range of user-friendly features. Users can save queries that they find interesting to their profile for easy access later. The application also supports a social aspect, allowing users to add friends and view their selected queries.
+
+Stay tuned for more exciting features as we continue to develop and improve Statemates!
 
 ## Configuration
 
+To configure Statemates, follow these steps:
 
-Please follow these steps:
-1. Clone the repository: `git clone https://github.com/software-students-spring2024/5-final-project-spring-2024-finalfive`
-
+#left of here... 
 ## Team
 
-- [Jean Luis Adrover](https://github.com/jladrover)
-- [Denzel Prudent](https://github.com/denprud)
-- [Sang In Kang](https://github.com/sik247)
-- [Rakshit Sridhar](https://github.com/RakSridhar23)
+Jean Luis Adrover: https://github.com/jladrover
 
-## Docker Hub Images
+Denzel Prudent: https://github.com/denprud
 
+Sang In Kang: https://github.com/sik247
 
-## Running the Project
-
-Ensure Docker is installed on your machine. Then, you can run the containers using the following commands:
+Rakshit Sridhar: https://github.com/RakSridhar23
