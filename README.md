@@ -5,7 +5,7 @@
 ## Description
 
 Our Web App, StatMates, can provide easy-to-read sports-related information 
-to users based on professional league queries written in the natural language. 
+to users based on professional league queries written in the natural language. Users register to use the site and can add friends to see their saved queries.
 
 ## Configuration
 Follow the following steps in order:
