@@ -4,8 +4,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      OPENAI_KEY: ${{ secrets.OPENAI_KEY }}
-      SERPAPI_KEY: ${{ secrets.SERPAPI_KEY }}
       MONGO_URI: ${{ secrets.MONGO_URI }}
 
 
