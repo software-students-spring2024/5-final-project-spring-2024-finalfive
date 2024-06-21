@@ -31,7 +31,7 @@ Finally, you can access our site on your local device through following link:
 #### http://localhost:5001/
 
 ## Digital Ocean
-### View our deployed version of the site: <br>
+### View our deployed version of the site (No longer deployed due to costs): <br>
 ### http://167.71.104.143:5001/
 
 ## Docker Hub
